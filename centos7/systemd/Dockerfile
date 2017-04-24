@@ -30,7 +30,7 @@ RUN yum makecache fast \
 RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
 # Set default password for root
-RUN echo 'root:docker.io' | chpasswd
+RUN echo 'hellodocker' | chpasswd root --stdin
 
 # we can has SSH
 EXPOSE 22
