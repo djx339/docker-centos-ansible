@@ -34,5 +34,8 @@ RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
 RUN echo 'root:docker.io' | chpasswd
 
+# we can has SSH
+EXPOSE 22
+
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
