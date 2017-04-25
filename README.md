@@ -1,4 +1,7 @@
 # docker-centos-ansible
+
+[![Build Status](https://travis-ci.org/djx339/docker-centos-ansible.svg?branch=master)](https://travis-ci.org/djx339/docker-centos-ansible)
+
 CentOS Docker image for Ansible playbook and role testing.
 
 
