@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - cd centos7/systemd
+  - docker build --rm -t djx339/centos-ansible:7-systemd .
+
+after_success:
+  - docker images
+  - docker run --name ansible_centos7_systemd -v /tmp/$(mktemp -d):/run -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7-systemd
+  - docker exec -it ansible_centos7_systemd ps aux
