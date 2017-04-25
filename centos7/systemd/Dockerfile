@@ -22,7 +22,7 @@ RUN yum makecache fast \
             openssh-clients \
             openssh-server \
             sudo \
-            which \   
+            which \
     && yum clean all \
     && systemctl enable sshd.service
 
@@ -31,6 +31,12 @@ RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
 # Set default password for root
 RUN echo 'root:docker.io' | chpasswd
+
+# Add a tructed ssh key
+RUN mkdir -p /root/.ssh/ \
+    && curl -sLo /root/.ssh/authorized_keys https://raw.githubusercontent.com/djx339/docker-centos-ansible/master/ansible_docker.key.pub \
+    && chmod 700 /root/.ssh \
+    && chmod 640 /root/.ssh/authorized_keys
 
 # we can has SSH
 EXPOSE 22
