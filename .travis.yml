@@ -10,4 +10,5 @@ script:
 after_success:
   - docker images
   - docker run --name ansible_centos7_systemd -v /tmp/$(mktemp -d):/run -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7-systemd
-  - docker exec -it ansible_centos7_systemd ps aux
+  - sleep 3
+  - docker exec -it ansible_centos7_systemd sh -c 'ps aux | grep sshd'
