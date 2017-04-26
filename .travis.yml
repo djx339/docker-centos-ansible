@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-  - cd centos7/systemd
+  - cd 7
   - docker build --rm -t djx339/centos-ansible:7-systemd .
 
 after_success:
