@@ -1,14 +1,17 @@
 sudo: required
 
+env:
+  - distro: 7
+
 services:
   - docker
 
 script:
-  - cd 7
-  - docker build --rm -t djx339/centos-ansible:7-systemd .
+  - cd ${distro}
+  - docker build --rm -t djx339/centos-ansible:${distro} .
 
 after_success:
   - docker images
-  - docker run --name ansible_centos7_systemd -v /tmp/$(mktemp -d):/run -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7-systemd
+  - docker run --name ansible_centos7_systemd -v /tmp/$(mktemp -d):/run -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:${distro} 
   - sleep 3
   - docker exec -it ansible_centos7_systemd sh -c 'ps aux | grep sshd'
