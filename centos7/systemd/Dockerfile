@@ -21,9 +21,11 @@ RUN yum makecache fast \
             ansible \
             openssh-clients \
             openssh-server \
+            python-pip \
             sudo \
             which \
     && yum clean all \
+    && pip install jmespath \
     && systemctl enable sshd.service
 
 # Install Ansible inventory file.
