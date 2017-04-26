@@ -9,8 +9,8 @@ CentOS Docker image for Ansible playbook and role testing.
 
 ```shell
 # Host os is Ubuntu.
-docker run --name ansible_centos7_systemd -v /tmp/$(mktemp -d):/run -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7-systemd
+docker run --name ansible_centos7_systemd -itd --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7
 
-# Host os is not Ubuntu
+# Host os is non-Ubuntu
 docker run --name ansible_centos7_systemd -itd -v /sys/fs/cgroup:/sys/fs/cgroup:ro djx339/centos-ansible:7-systemd
 ```
