@@ -1,12 +1,15 @@
 # docker-centos-ansible [DEPRECATED]
 
-[![Build Status](https://travis-ci.org/djx339/docker-centos-ansible.svg?branch=master)](https://travis-ci.org/djx339/docker-centos-ansible)
-
-CentOS Docker image for Ansible playbook and role testing.
 
 ## DEPRECATED
 
 [AnsibleCheck](https://github.com/AnsibleCheck/ansiblecheck) is a better choice.
+
+## Overview
+
+[![Build Status](https://travis-ci.org/djx339/docker-centos-ansible.svg?branch=master)](https://travis-ci.org/djx339/docker-centos-ansible)
+
+CentOS Docker image for Ansible playbook and role testing.
 
 ## Usage
 
